@@ -1,31 +1,28 @@
 import { Routes, Route } from 'react-router-dom';
-import { UserContextProvider } from './Components/Auth/UserContext';
-import NavigationBar from './Components/Navigate/NavigateBar';
-import FooterBar from './Components/Navigate/FooterBar';
-import Home from './Components/Home/Home'
-
-import Register from './Components/Auth/Register';
-import LogIn from './Components/Auth/LogIn';
+import NavigationBar from './components/Base/NavigationBar';
+// import FooterBar from './components/footerBar/FooterBar';
+import Home from './components/Base/Home';
 import ReadAll from './components/Crud/ReadAll';
+import ReadOne from './components/Crud/DetailItem';
+import Create from './components/Crud/Create';
+import Update from './components/Crud/Update';
+// import Page404 from './Components/404/Page404';
 function App() {
 return (
 <>
-
-<UserContextProvider>
 <NavigationBar />
 <Routes>
-
+{/* Home */}
 <Route path="/" element={<Home />} />
-
-……………
-
-<Route path="/register" element={<Create />} />
-<Route path="/login" element={<ReadAll />} />
-
-<Route path="*" element={<DetailItem />} />
+{/* CRUD */}
+<Route path="/readAll" element={<ReadAll />} />
+<Route path="/readOne/:id" element={<ReadOne />} />
+<Route path="create/" element={<Create />} />
+<Route path="/update/:id" element={<Update />} />
+{/* 404 */}
+{/* <Route path="*" element={<Page404 />} /> */}
 </Routes>
-<FooterBar />
-</UserContextProvider>
+{/* <FooterBar /> */}
 </>
 );
 }
